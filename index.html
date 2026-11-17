@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotePad Studio</title>
+    <style>
+        body {
+            background-color: #dce7f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #1f3a52;
+            margin-bottom: 5px;
+        }
+        p {
+            color: #4a6075;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        #canvas {
+            width: 650px;
+            height: 220px;
+            background-color: white;
+            border: 2px solid #1f3a52;
+            border-radius: 12px;
+            padding: 18px;
+            font-size: 22px;
+            text-align: left;
+            overflow: auto;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        #controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 15px;
+            width: 210px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        .card h3 {
+            color: #1f3a52;
+            margin-top: 0;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 6px;
+        }
+        button {
+            width: 85px;
+            padding: 8px 5px;
+            margin: 4px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .font-btn {
+            background-color: #f1f4f8;
+            color: #1f3a52;
+        }
+        #resetBtn {
+            width: 120px;
+            background-color: #1f3a52;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>NotePad Studio</h1>
+        <p>Write your note and customize its style</p>
+        
+        <div id="canvas" contenteditable="true">
+            Start typing your text here...
+        </div>
+
+        <br>
+
+        <div id="controls">
+            <div class="card">
+                <h3>Page Color</h3>
+                <button onclick="setBg('lightyellow')" style="background-color: lightyellow;">Yellow</button>
+                <button onclick="setBg('lightblue')" style="background-color: lightblue;">Blue</button>
+                <button onclick="setBg('lightgreen')" style="background-color: lightgreen;">Green</button>
+                <button onclick="setBg('mistyrose')" style="background-color: mistyrose;">Pink</button>
+                <button onclick="setBg('lavender')" style="background-color: lavender;">Lavender</button>
+                <button onclick="setBg('white')" style="background-color: white;">White</button>
+            </div>
+
+            <div class="card">
+                <h3>Text Color</h3>
+                <button onclick="setTxt('darkred')" style="background-color: darkred; color: white;">Red</button>
+                <button onclick="setTxt('darkblue')" style="background-color: darkblue; color: white;">Blue</button>
+                <button onclick="setTxt('darkgreen')" style="background-color: darkgreen; color: white;">Green</button>
+                <button onclick="setTxt('purple')" style="background-color: purple; color: white;">Purple</button>
+                <button onclick="setTxt('darkorange')" style="background-color: darkorange; color: white;">Orange</button>
+                <button onclick="setTxt('black')" style="background-color: black; color: white;">Black</button>
+            </div>
+
+            <div class="card">
+                <h3>Font Style</h3>
+                <button onclick="setFont('Arial')" class="font-btn" style="font-family: Arial;">Arial</button>
+                <button onclick="setFont('Courier New')" class="font-btn" style="font-family: 'Courier New';">Courier</button>
+                <button onclick="setFont('Georgia')" class="font-btn" style="font-family: Georgia;">Georgia</button>
+                <button onclick="setFont('Verdana')" class="font-btn" style="font-family: Verdana;">Verdana</button>
+                <button onclick="setFont('Impact')" class="font-btn" style="font-family: Impact;">Impact</button>
+                <button onclick="setFont('Comic Sans MS')" class="font-btn" style="font-family: 'Comic Sans MS';">Comic</button>
+            </div>
+        </div>
+
+        <br>
+        <button id="resetBtn" onclick="resetAll()">Reset All</button>
+    </center>
+
+    <script>
+        function setBg(color) {
+            document.getElementById("canvas").style.backgroundColor = color;
+        }
+        function setTxt(color) {
+            document.getElementById("canvas").style.color = color;
+        }
+        function setFont(font) {
+            document.getElementById("canvas").style.fontFamily = font;
+        }
+        function resetAll() {
+            document.getElementById("canvas").style.backgroundColor = "white";
+            document.getElementById("canvas").style.color = "black";
+            document.getElementById("canvas").style.fontFamily = "Arial";
+        }
+    </script>
+</body>
+</html>
